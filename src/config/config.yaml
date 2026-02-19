@@ -1,0 +1,32 @@
+server:
+  port: 8080
+  host: "localhost"
+
+redis:
+  host: "localhost"
+  port: 6379
+  password: "your_redis_password"
+  db: 0
+  pool_size: 10
+  min_idle_conns: 5
+  dial_timeout: 5s
+  read_timeout: 3s
+  write_timeout: 3s
+  pool_timeout: 4s
+  max_retries: 3
+
+db:
+  host: "localhost"
+  port: 5432
+  user: "postgres"
+  password: "1111"
+  name: "bedrok"
+  sslmode: "disable"
+  max_open_conns: 25
+  max_idle_conns: 5
+  conn_max_lifetime: 5m
+  conn_max_idle_time: 5m
+
+log:
+  level: "info"
+  format: "json"
