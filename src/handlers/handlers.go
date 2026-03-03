@@ -24,7 +24,7 @@ func New(db *sql.DB, redis *redis.Client, logger *slog.Logger) *Handler {
 }
 
 func (h *Handler) Home(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Welcome to Bedrok!")
+	_, _ = fmt.Fprintf(w, "Welcome to Bedrok!")
 }
 
 func (h *Handler) Liveness(w http.ResponseWriter, r *http.Request) {
@@ -34,16 +34,16 @@ func (h *Handler) Liveness(w http.ResponseWriter, r *http.Request) {
 func (h *Handler) Readiness(w http.ResponseWriter, r *http.Request) {
 	if err := h.db.PingContext(r.Context()); err != nil {
 		w.WriteHeader(http.StatusServiceUnavailable)
-		fmt.Fprintf(w, `{"status":"unavailable","db":"down"}`)
+		_, _ = fmt.Fprintf(w, `{"status":"unavailable","db":"down"}`)
 		return
 	}
 
 	if err := h.redis.Ping(r.Context()).Err(); err != nil {
 		w.WriteHeader(http.StatusServiceUnavailable)
-		fmt.Fprintf(w, `{"status":"unavailable","redis":"down"}`)
+		_, _ = fmt.Fprintf(w, `{"status":"unavailable","redis":"down"}`)
 		return
 	}
 
 	w.WriteHeader(http.StatusOK)
-	fmt.Fprintf(w, `{"status":"ok"}`)
+	_, _ = fmt.Fprintf(w, `{"status":"ok"}`)
 }

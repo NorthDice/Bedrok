@@ -1,0 +1,26 @@
+version: "2"
+
+run:
+  timeout: 5m
+  modules-download-mode: readonly
+
+linters:
+  enable:
+    - errcheck       # check unchecked errors
+    - govet          # go vet checks
+    - ineffassign    # detect ineffectual assignments
+    - staticcheck    # static analysis
+    - unused         # detect unused code
+    - misspell       # spelling mistakes
+    - godot          # comment punctuation
+    - noctx          # http.Request without context
+    - bodyclose      # http response body not closed
+
+formatters:
+  enable:
+    - gofmt
+    - goimports
+  settings:
+    goimports:
+      local-prefixes:
+        - bedrok

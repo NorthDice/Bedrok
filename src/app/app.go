@@ -63,6 +63,10 @@ func (a *App) Router() http.Handler {
 }
 
 func (a *App) Close() {
-	a.db.Close()
-	a.redis.Close()
+	if err := a.db.Close(); err != nil {
+		a.logger.Error("failed to close db", "error", err)
+	}
+	if err := a.redis.Close(); err != nil {
+		a.logger.Error("failed to close redis", "error", err)
+	}
 }

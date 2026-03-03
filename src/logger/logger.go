@@ -1,9 +1,10 @@
 package logger
 
 import (
-	"bedrok/cnf"
 	"log/slog"
 	"os"
+
+	"bedrok/cnf"
 )
 
 func Init(cfg cnf.LogConfig) *slog.Logger {

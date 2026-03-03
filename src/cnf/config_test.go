@@ -125,9 +125,6 @@ func TestLoad_EmptyFile(t *testing.T) {
 	if err != nil {
 		t.Fatalf("unexpected error: %v", err)
 	}
-	if cfg == nil {
-		t.Fatal("expected non-nil config for empty file")
-	}
 	if cfg.Server.Port != 0 {
 		t.Errorf("Server.Port = %d, want 0", cfg.Server.Port)
 	}
