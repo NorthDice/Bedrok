@@ -93,7 +93,7 @@ The `uses` field references actions from GitHub Marketplace in format `owner/rep
 |--------|---------|
 | `actions/checkout@v4` | Clones your repo into the runner |
 | `actions/setup-go@v5` | Installs a specific Go version |
-| `golangci/golangci-lint-action@v6` | Runs golangci-lint |
+| `golangci/golangci-lint-action@v7` | Runs golangci-lint |
 
 ---
 
